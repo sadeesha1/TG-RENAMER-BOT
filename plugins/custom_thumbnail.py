@@ -25,7 +25,7 @@ from translation import Translation
 import pyrogram
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
-from helper_funcs.chat_base import TRChatBase
+
 
 
 @pyrogram.Client.on_message(pyrogram.Filters.command(["generatecustomthumbnail"]))
@@ -93,7 +93,7 @@ async def save_photo(bot, update):
             revoke=True
         )
         return
-    TRChatBase(update.from_user.id, update.text, "save_photo")
+    
     if update.media_group_id is not None:
         # album is sent
         download_location = Config.DOWNLOAD_LOCATION + "/" + str(update.from_user.id) + "/" + str(update.media_group_id) + "/"
